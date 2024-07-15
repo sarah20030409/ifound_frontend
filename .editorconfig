@@ -1,0 +1,8 @@
+root = true #The most highest authority of the editorConfig style.
+
+[*]
+end_of_line = crlf
+charset = utf-8
+insert_final_newline = true
+indent_style = space
+tab_width = 4
