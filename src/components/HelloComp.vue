@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // import { ref } from 'vue'
-const Props: any = defineProps({
+const _props: any = defineProps({
   name: String
 })
 </script>
