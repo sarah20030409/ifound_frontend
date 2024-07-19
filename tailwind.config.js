@@ -3,6 +3,9 @@ export default {
   content: ['./src/**/*.{html,js,ts,jsx,tsx,vue}'],
   theme: {
     extend: {
+      margin: {
+        20: '20px'
+      },
       colors: {
         transparent: 'transparent',
         current: 'currentColor',
