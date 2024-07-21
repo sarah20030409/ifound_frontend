@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // import { ref } from 'vue'
-const _props: any = defineProps({
+const props = defineProps({
   name: String
 })
 
@@ -19,7 +19,7 @@ const tagsStyle: Array<String> = [
   <div class="grid grid-cols-2 space-x-2">
     <div class="bg-tagRed border-4 border-tagRedText">
       <h1 class="text-3xl font-bold p-4 mb-[10px] text-tagRedText lg:text-tagOrangeText">
-        Hello! {{ name }}, this is IFound frontend ! There are test page.
+        Hello! {{ props.name }}, this is IFound frontend ! There are test page.
       </h1>
     </div>
 

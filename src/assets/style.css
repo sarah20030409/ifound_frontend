@@ -39,19 +39,19 @@
 
   /* text style */
   .BigTitle {
-    @apply font-bold text-3xl text-[#615F5F] tracking-widest;
+    @apply font-bold text-3xl text-textColor tracking-widest;
   }
   .MediumText {
-    @apply text-xl text-[#615F5F];
+    @apply text-xl text-textColor;
   }
   .AwardTitle {
-    @apply text-lg text-[#615F5F];
+    @apply text-lg text-textColor;
   }
   .NormalText {
-    @apply text-base text-[#615F5F];
+    @apply text-base text-textColor;
   }
   .DesText {
-    @apply text-sm text-[#8D8D8D];
+    @apply text-sm text-desTextColor;
   }
 }
 

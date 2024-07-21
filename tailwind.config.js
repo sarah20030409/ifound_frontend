@@ -31,8 +31,10 @@ export default {
         tagMagenta: '#F8C9FF',
         tagMagentaText: '#E12CFF',
         tagPink: '#FFC9DA',
-        tagPinkText: '#FF3270'
+        tagPinkText: '#FF3270',
         //=========
+        textColor: '#615F5F',
+        desTextColor: '#8D8D8D'
       },
       screens: {
         sm: '410px',
