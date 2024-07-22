@@ -4,7 +4,11 @@ export default {
   theme: {
     extend: {
       margin: {
-        20: '20px'
+        20: '20px',
+        15: '15px'
+      },
+      padding: {
+        15: '15px'
       },
       colors: {
         transparent: 'transparent',
@@ -37,9 +41,9 @@ export default {
         desTextColor: '#8D8D8D'
       },
       screens: {
-        sm: '410px',
-        md: '500px',
-        lg: '800px'
+        sm: '375px',
+        md: '720px',
+        lg: '1024px'
       }
     }
   },
