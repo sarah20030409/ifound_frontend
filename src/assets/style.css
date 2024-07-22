@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  /* Base style for tags. */
+  .TagBaseStyle {
+    @apply inline-block py-1 px-9 m-1 text-center rounded-full text-xl font-bold max-h-9;
+  }
+
+  /* Tags style. */
+  .TagRed {
+    @apply TagBaseStyle bg-tagRed text-tagRedText;
+  }
+  .TagOrange {
+    @apply TagBaseStyle bg-tagOrange text-tagOrangeText;
+  }
+  .TagYellow {
+    @apply TagBaseStyle bg-tagYellow text-tagYellowText;
+  }
+  .TagGreen {
+    @apply TagBaseStyle bg-tagGreen text-tagGreenText;
+  }
+  .TagCyan {
+    @apply TagBaseStyle bg-tagCyan text-tagCyanText;
+  }
+  .TagBlue {
+    @apply TagBaseStyle bg-tagBlue text-tagBlueText;
+  }
+  .TagPurple {
+    @apply TagBaseStyle bg-tagPurple text-tagPurpleText;
+  }
+  .TagMagenta {
+    @apply TagBaseStyle bg-tagMagenta text-tagMagentaText;
+  }
+  .TagPink {
+    @apply TagBaseStyle bg-tagPink text-tagPinkText;
+  }
+
+  /* text style */
+  .BigTitle {
+    @apply font-bold text-3xl text-textColor tracking-widest;
+  }
+  .MediumText {
+    @apply text-xl text-textColor;
+  }
+  .AwardTitle {
+    @apply text-lg text-textColor;
+  }
+  .NormalText {
+    @apply text-base text-textColor;
+  }
+  .DesText {
+    @apply text-sm text-desTextColor;
+  }
+}
+
+@layer base {
+  * {
+    @apply selection:bg-tagRed;
+  }
+  p {
+    /* Font's default size is 16px */
+    @apply text-base font-sans;
+  }
+}
