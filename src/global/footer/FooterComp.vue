@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { RouterLink } from 'vue-router'
 import Footer01 from '../../img/footer/footer01.svg'
 import Footer02 from '../../img/footer/footer02.svg'
 import Footer03 from '../../img/footer/footer03.svg'
@@ -6,11 +7,11 @@ import Footer03 from '../../img/footer/footer03.svg'
 <template>
   <div class="grid bg-ifoundBlue h-14 rounded-t">
     <div class="flex justify-around px-8">
-      <button><img :src="Footer01" /></button>
+      <RouterLink class="flex" to="/"><img :src="Footer01" /> </RouterLink>
       <div class="w-[1px] bg-white mx-0"></div>
-      <button><img :src="Footer02" /></button>
+      <RouterLink class="flex" to="/"><img :src="Footer02" /></RouterLink>
       <div class="w-[1px] bg-white mx-0"></div>
-      <button><img :src="Footer03" /></button>
+      <RouterLink class="flex" to="/signupLogin"><img :src="Footer03" /></RouterLink>
     </div>
   </div>
 </template>

@@ -53,6 +53,17 @@
   .DesText {
     @apply text-sm text-desTextColor;
   }
+
+  /* components style */
+  .FromInputStyle {
+    @apply bg-ifoundGary2 block w-80 h-10 mb-8 mt-1 px-2 rounded lg:w-96;
+  }
+  .FromBTNStyle {
+    @apply w-36 h-12 bg-ifoundBlue text-white rounded mt-8 text-lg duration-300 hover:bg-ifoundDarkGray;
+  }
+  .FromMoreBtnStyle {
+    @apply DesText mt-2 cursor-pointer hover:text-gray-500 duration-300;
+  }
 }
 
 @layer base {

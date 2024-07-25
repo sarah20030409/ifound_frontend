@@ -17,6 +17,7 @@ export default {
         ifoundGary: '#D9D3D5',
         ifoundDarkGray: '#615F5F',
         ifoundBlue: '#1D6AA2',
+        ifoundGary2: '#F4F4F4',
         //====Tag Color=====
         tagRed: '#FFCBC9',
         tagRedText: '#CE0E0A',
@@ -42,7 +43,7 @@ export default {
       },
       screens: {
         sm: '375px',
-        md: '720px',
+        md: '620px',
         lg: '1024px'
       }
     }

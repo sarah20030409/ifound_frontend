@@ -9,6 +9,15 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "moduleResolution": "node", //Allow ts to resolve modules as node.js
+    "esModuleInterop": false, //Allow CommonJS(old) and ES6 modules to be resolved together,but we don't need it.
+    "skipLibCheck": true,
+    //Skip type checking all .d.ts files,which is useful to improve performance.
+    //In actual development, we usually care more about the type checking
+    //of our own code rather than the type declaration files of third-party libraries.
+    //Many third-party libraries already have reliable type declaration files provided by the community
+    //or the library author, and usually there are no major problems...
+    "noImplicitAny": false //If set to true, TypeScript will not allow implicit any types where there is no explicit type annotation.
   }
 }
