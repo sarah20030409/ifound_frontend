@@ -10,9 +10,6 @@ import FooterComp from './global/footer/FooterComp.vue'
       <HeaderComp />
     </header>
     <div class="mt-24">
-      <!-- <LostList /> -->
-      <!-- <SignupLogin /> -->
-      <!-- <WaterFall /> -->
       <RouterView />
     </div>
     <footer class="fixed bottom-0 w-full lg:w-[50%]">
