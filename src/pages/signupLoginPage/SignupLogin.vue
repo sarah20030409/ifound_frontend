@@ -9,28 +9,33 @@ const toSwitch = () => {
   isLogin.value = !isLogin.value
 }
 
-const { formData, message, postToSignup, formatValidation } = useSignupApi()
+const { formData, message, postToSignup } = useSignupApi()
+const clearMessage = () => {
+  message.value = ''
+}
 </script>
 
 <template>
   <div class="pt-16 pb-28">
     <div v-if="isLogin">
       <h1 class="text-center BigTitle mb-15">註冊</h1>
-      <form @submit.prevent="formatValidation" class="flex justify-center">
+      <form @submit.prevent="postToSignup" class="flex justify-center">
         <div>
-          <label for="account" class="MediumText">帳號(10字以上)：</label>
+          <label for="account" class="MediumText">帳號：</label>
           <input
             id="account"
             v-model="formData.account"
-            class="FormInputStyle"
+            :class="/[帳號]/.test(message) ? 'FormInputStyle bg-red-100' : 'FormInputStyle'"
+            @focus="clearMessage"
             type="email"
+            autocomplete="off"
             required
           />
           <label for="password" class="MediumText">密碼：</label>
           <input
             id="password"
             v-model="formData.password"
-            class="FormInputStyle"
+            :class="/[密碼]/.test(message) ? 'FormInputStyle bg-red-100' : 'FormInputStyle'"
             type="password"
             required
           />
@@ -38,32 +43,25 @@ const { formData, message, postToSignup, formatValidation } = useSignupApi()
           <input
             id="passwordRepeat"
             v-model="setPasswordRepeat"
-            class="FormInputStyle"
+            :class="/[密碼]/.test(message) ? 'FormInputStyle bg-red-100' : 'FormInputStyle'"
             type="password"
             required
           />
-          <p class="FormWarningStyle" v-if="message">⚠{{ message }}⚠</p>
-          <p class="FormWarningStyle" v-if="formData.account.length < 10">⚠帳號低於10字⚠</p>
-          <p class="FormWarningStyle" v-if="formData.password !== setPasswordRepeat">
-            ⚠密碼不一致
-          </p>
 
           <div class="flex flex-col items-center">
             <button
               :disabled="
-                formData.account.length > 10 ||
                 formData.password === '' ||
                 setPasswordRepeat === '' ||
                 formData.password !== setPasswordRepeat
               "
-              :class="[
-                formData.account.length > 10 ||
+              :class="
                 formData.password === '' ||
                 setPasswordRepeat === '' ||
                 formData.password !== setPasswordRepeat
                   ? 'FormBTNDisabledStyle'
                   : 'FormBTNStyle'
-              ]"
+              "
               type="submit"
             >
               確定
@@ -72,6 +70,10 @@ const { formData, message, postToSignup, formatValidation } = useSignupApi()
           </div>
         </div>
       </form>
+      <div class="px-9 pt-5">
+        <p class="FormWarningStyle" v-if="formData.password !== setPasswordRepeat">⚠密碼不一致</p>
+        <p class="FormWarningStyle" v-if="message">⚠{{ message }}⚠</p>
+      </div>
     </div>
 
     <div v-else>
