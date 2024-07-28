@@ -24,7 +24,7 @@ const clearMessage = () => {
           <label for="account" class="MediumText">帳號：</label>
           <input
             id="account"
-            v-model="formData.account"
+            v-model="formData.Account"
             :class="/[帳號]/.test(message) ? 'FormInputStyle bg-red-100' : 'FormInputStyle'"
             @focus="clearMessage"
             type="email"
@@ -34,8 +34,9 @@ const clearMessage = () => {
           <label for="password" class="MediumText">密碼：</label>
           <input
             id="password"
-            v-model="formData.password"
+            v-model="formData.Password"
             :class="/[密碼]/.test(message) ? 'FormInputStyle bg-red-100' : 'FormInputStyle'"
+            @focus="clearMessage"
             type="password"
             required
           />
@@ -44,6 +45,7 @@ const clearMessage = () => {
             id="passwordRepeat"
             v-model="setPasswordRepeat"
             :class="/[密碼]/.test(message) ? 'FormInputStyle bg-red-100' : 'FormInputStyle'"
+            @focus="clearMessage"
             type="password"
             required
           />
@@ -51,14 +53,14 @@ const clearMessage = () => {
           <div class="flex flex-col items-center">
             <button
               :disabled="
-                formData.password === '' ||
+                formData.Password === '' ||
                 setPasswordRepeat === '' ||
-                formData.password !== setPasswordRepeat
+                formData.Password !== setPasswordRepeat
               "
               :class="
-                formData.password === '' ||
+                formData.Password === '' ||
                 setPasswordRepeat === '' ||
-                formData.password !== setPasswordRepeat
+                formData.Password !== setPasswordRepeat
                   ? 'FormBTNDisabledStyle'
                   : 'FormBTNStyle'
               "
@@ -71,7 +73,7 @@ const clearMessage = () => {
         </div>
       </form>
       <div class="px-9 pt-5">
-        <p class="FormWarningStyle" v-if="formData.password !== setPasswordRepeat">⚠密碼不一致</p>
+        <p class="FormWarningStyle" v-if="formData.Password !== setPasswordRepeat">⚠密碼不一致</p>
         <p class="FormWarningStyle" v-if="message">⚠{{ message }}⚠</p>
       </div>
     </div>

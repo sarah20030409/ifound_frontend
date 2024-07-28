@@ -10,6 +10,7 @@ const { tokenStore, getToken } = useGetToken()
 onMounted(async () => {
   const token: string = await getToken()
   if (token) {
+    console.log(document.cookie)
     tokenStore.setToken(token)
   }
 })

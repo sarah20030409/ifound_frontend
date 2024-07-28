@@ -6,19 +6,21 @@ import axios from 'axios'
 interface ItemData {
   src: string
   alt: string
-  word: void
+  word: string
 }
 
 const items = ref<ItemData[]>([])
 
 const randomData = ref('')
-const loadData = async () => {
+const loadData = async (): Promise<string> => {
   try {
     const response = await axios.get('https://random-word-api.herokuapp.com/word')
     randomData.value = response.data
+    return 'Success'
   } catch (err) {
     console.error('Failed to fetch fruit data!!:', err)
     randomData.value = 'Failed to load fruit data'
+    return 'Failed to load fruit data'
   }
 }
 
@@ -47,7 +49,7 @@ onMounted(() => {
 <template>
   <div class="container max-w-[1200px] mx-auto px-5">
     <MasonryWall :items="items" :ssr-columns="2" :column-width="200" :gap="20">
-      <template v-slot:default="{ item }: { item: ItemData }">
+      <template #default="{ item }: { item: ItemData }">
         <div
           class="mb-4 overflow-hidden rounded-lg shadow-sm transition-transform duration-300 hover:shadow-md"
         >
