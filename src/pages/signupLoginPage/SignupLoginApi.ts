@@ -2,7 +2,9 @@ import { ref } from 'vue'
 import axios from 'axios'
 import { storeToRefs } from 'pinia'
 import { useTokenStore } from '@/store/piniaStore'
-import useGetToken from '../api/GetTokenApi'
+import { useRouter } from 'vue-router'
+import { usePermissionStore } from '@/store/piniaStore'
+import useGetToken from '../../global/api/GetTokenApi'
 
 interface formData {
   Account: string
@@ -55,7 +57,7 @@ export default function useSignupApi() {
       const response = await axios.post(Signup_URL, formData.value, {
         headers: {
           'Content-Type': 'application/json',
-          'X-CSRF-TOKEN': token.value
+          'x-csrf-token': token.value
         }
       })
       message.value = '註冊成功!'
@@ -67,4 +69,48 @@ export default function useSignupApi() {
   }
 
   return { formData, message, postToSignup }
+}
+
+export function useLoginApi() {
+  const tokenStore = useTokenStore()
+  const { token } = storeToRefs(tokenStore)
+  const router = useRouter()
+  if (!token.value) {
+    useGetToken().getToken()
+  }
+
+  const loginFormData = ref<formData>({
+    Account: '',
+    Password: ''
+  })
+
+  const permissionStore = usePermissionStore()
+  const loginMessage = ref<string>('')
+  const Login_URL: string = 'auth/login'
+  const postToLogin = async () => {
+    try {
+      const response = await axios.post(Login_URL, loginFormData.value, {
+        headers: {
+          'Content-Type': 'application/json',
+          'x-csrf-token': token.value
+        }
+      })
+      permissionStore.setPermission(response.data.Permission)
+      loginMessage.value = '登入成功!'
+
+      //   if (response.data.Permission === 0) {
+      //     router.push('/')
+      //   }
+      return response
+    } catch (error) {
+      loginMessage.value = '登入失敗,帳號或密碼錯誤'
+      return error
+    }
+  }
+
+  return {
+    loginFormData,
+    postToLogin,
+    loginMessage
+  }
 }

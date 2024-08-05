@@ -8,7 +8,8 @@ export default function useGetToken() {
     try {
       const response = await axios.get('auth/getToken')
       const token = response.data.csrfToken
-      localStorage.setItem('token', token)
+      tokenStore.setToken(token)
+      console.log(tokenStore.getToken())
 
       return token
     } catch (error) {

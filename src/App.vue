@@ -2,16 +2,19 @@
 import './assets/style.css'
 import HeaderComp from './global/header/HeaderComp.vue'
 import FooterComp from './global/footer/FooterComp.vue'
-import useGetToken from './pages/api/GetTokenApi'
-import { onMounted } from 'vue'
+import useGetToken from './global/api/GetTokenApi'
+import { onMounted, ref } from 'vue'
 
 const { tokenStore, getToken } = useGetToken()
+const tokenSet = ref<boolean>(false)
 
 onMounted(async () => {
-  const token: string = await getToken()
-  if (token) {
-    console.log(document.cookie)
-    tokenStore.setToken(token)
+  if (!tokenSet.value) {
+    const token: string = await getToken()
+    if (token) {
+      tokenStore.setToken(token)
+      tokenSet.value = true
+    }
   }
 })
 </script>
