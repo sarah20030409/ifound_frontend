@@ -3,18 +3,23 @@ import './assets/style.css'
 import HeaderComp from './global/header/HeaderComp.vue'
 import FooterComp from './global/footer/FooterComp.vue'
 import useGetToken from './global/api/GetTokenApi'
+import useGetPermission from './global/api/GetPermissionApi'
 import { onMounted, ref } from 'vue'
 
-const { tokenStore, getToken } = useGetToken()
+const { token, getToken } = useGetToken()
+const { getPermission, permission } = useGetPermission()
 const tokenSet = ref<boolean>(false)
 
 onMounted(async () => {
-  if (!tokenSet.value) {
-    const token: string = await getToken()
-    if (token) {
-      tokenStore.setToken(token)
+  {
+    if (!tokenSet.value) {
+      await getToken()
+      await getPermission()
       tokenSet.value = true
+    } else {
+      await getPermission()
     }
+    console.log('permission:' + permission.value)
   }
 })
 </script>

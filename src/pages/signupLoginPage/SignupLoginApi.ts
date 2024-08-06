@@ -75,6 +75,7 @@ export function useLoginApi() {
   const tokenStore = useTokenStore()
   const { token } = storeToRefs(tokenStore)
   const router = useRouter()
+
   if (!token.value) {
     useGetToken().getToken()
   }
@@ -98,9 +99,9 @@ export function useLoginApi() {
       permissionStore.setPermission(response.data.Permission)
       loginMessage.value = '登入成功!'
 
-      //   if (response.data.Permission === 0) {
-      //     router.push('/')
-      //   }
+      if (response.data.Permission === 0) {
+        router.push('/')
+      }
       return response
     } catch (error) {
       loginMessage.value = '登入失敗,帳號或密碼錯誤'

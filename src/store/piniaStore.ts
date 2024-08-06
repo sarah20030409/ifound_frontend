@@ -13,7 +13,7 @@ export const useTokenStore = defineStore('token', {
       this.token = ''
       //Use 'tokenStore.clearToken()' to clear token
     },
-    getToken() {
+    getToken(): string {
       return this.token
       // Use 'tokenStore.getToken()' to get token
     }
@@ -27,6 +27,9 @@ export const usePermissionStore = defineStore('permission', {
   actions: {
     setPermission(permission: number) {
       this.permission = permission
+    },
+    clearPermission() {
+      this.permission = 2
     }
   },
   getters: {

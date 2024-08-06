@@ -17,7 +17,7 @@ const userState = computed(() => {
   if (permission.value === 0) return 'user'
   return 'guest'
 })
-console.log(permission.value)
+// console.log(permission.value)
 </script>
 <template>
   <div class="grid bg-ifoundBlue h-14 rounded-t">
