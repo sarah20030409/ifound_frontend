@@ -5,7 +5,7 @@
 @layer components {
   /* Base style for tags. */
   .TagBaseStyle {
-    @apply inline-block py-1 px-9 m-1 text-center rounded-full text-xl font-bold max-h-9;
+    @apply inline-block py-1 px-9 m-1 text-center rounded-full text-xs font-bold max-h-9;
   }
 
   /* Tags style. */

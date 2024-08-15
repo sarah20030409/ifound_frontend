@@ -16,6 +16,7 @@
     "@headlessui/vue": "^1.7.22",
     "@heroicons/vue": "^2.1.5",
     "@yeger/vue-masonry-wall": "^5.0.12",
+    "animate.css": "^4.1.1",
     "axios": "^1.7.2",
     "pinia": "^2.2.0",
     "vue": "^3.4.29",

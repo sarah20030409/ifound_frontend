@@ -34,7 +34,7 @@ const userState = computed(() => {
       <div class="w-[1px] bg-white mx-0"></div>
       <RouterLink class="flex" to="/"><img :src="Footer02" /></RouterLink>
       <div class="w-[1px] bg-white mx-0"></div>
-      <RouterLink class="flex" to="/signupLogin"><img :src="Footer03" /></RouterLink>
+      <RouterLink class="flex" to="/userSelfListPage"><img :src="Footer03" /></RouterLink>
     </div>
 
     <div v-if="userState === 'admin'" class="flex justify-around px-8">
