@@ -4,6 +4,7 @@ import MasonryWall from '@yeger/vue-masonry-wall'
 import useGetLostApi from './LostListApi'
 import type { ItemData } from './LostListApi'
 import 'animate.css'
+import router from '@/global/footer/RouterSwitch'
 
 const { lostItem, items } = useGetLostApi()
 const loading = ref<boolean>(true)
@@ -16,6 +17,10 @@ onMounted(async () => {
     loading.value = false
   }
 })
+
+const lostItemInfo = () => {
+  router.push('/lostInfoPage')
+}
 </script>
 
 <template>
@@ -30,11 +35,14 @@ onMounted(async () => {
             :src="(slotProps.item as ItemData).src"
             :alt="(slotProps.item as ItemData).alt"
             class="w-full h-auto object-cover rounded-md hover:shadow-lg"
+            @click="lostItemInfo()"
           />
           <div>
-            <p class="TagCyan inline-block">{{ (slotProps.item as ItemData).tag }}</p>
+            <p class="TagCyan inline-block" @click="lostItemInfo()">
+              {{ (slotProps.item as ItemData).tag }}
+            </p>
             <p class="TagOrange inline-block">排版測試</p>
-            <p class="inline-block">...</p>
+            <p class="inline-block text-xl hover:-translate-y-1" @click="lostItemInfo()">...</p>
           </div>
         </div>
       </template>
