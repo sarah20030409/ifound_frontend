@@ -70,6 +70,20 @@
   .FormWarningStyle {
     @apply text-center text-lg text-ifoundRed;
   }
+
+  /* achievement style */
+  .achievementAchieve {
+    @apply flex justify-between align-middle py-2 px-5 my-2 rounded-md bg-white drop-shadow-md hover:scale-[1.02];
+  }
+  .achievementNotAchieve {
+    @apply flex justify-between align-middle py-2 px-5 my-2 rounded-md bg-gray-100 drop-shadow-md hover:scale-[1.02];
+  }
+  .colorfulStar {
+    @apply h-20;
+  }
+  .grayStar {
+    @apply h-20 grayscale;
+  }
 }
 
 @layer base {
