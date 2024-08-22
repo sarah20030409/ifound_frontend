@@ -5,7 +5,7 @@
 @layer components {
   /* Base style for tags. */
   .TagBaseStyle {
-    @apply inline-block py-1 px-9 m-1 text-center rounded-full text-xl font-bold max-h-9;
+    @apply inline-block py-1 px-9 m-1 text-center rounded-full text-xs font-bold max-h-9;
   }
 
   /* Tags style. */
@@ -53,14 +53,61 @@
   .DesText {
     @apply text-sm text-desTextColor;
   }
+
+  /* components style */
+  .FormInputStyle {
+    @apply bg-ifoundGary2 block w-80 h-10 mb-8 mt-1 px-2 rounded lg:w-96;
+  }
+  .FormBTNStyle {
+    @apply w-36 h-12 bg-ifoundBlue text-white rounded mt-8 text-lg duration-300 hover:bg-ifoundDarkGray;
+  }
+  .FormBTNDisabledStyle {
+    @apply w-36 h-12 bg-ifoundDarkGray text-white rounded pointer-events-none mt-8 text-lg duration-300 hover:bg-ifoundDarkGray;
+  }
+  .FormMoreBtnStyle {
+    @apply DesText mt-2 cursor-pointer hover:text-gray-500 duration-300;
+  }
+  .FormWarningStyle {
+    @apply text-center text-lg text-ifoundRed;
+  }
+
+  /* achievement style */
+  .achievementAchieve {
+    @apply flex justify-between align-middle py-2 px-5 my-2 rounded-md bg-white drop-shadow-md hover:scale-[1.02];
+  }
+  .achievementNotAchieve {
+    @apply flex justify-between align-middle py-2 px-5 my-2 rounded-md bg-gray-100 drop-shadow-md hover:scale-[1.02];
+  }
+  .colorfulStar {
+    @apply h-20;
+  }
+  .grayStar {
+    @apply h-20 grayscale;
+  }
 }
 
 @layer base {
   * {
-    @apply selection:bg-tagRed;
+    @apply selection:bg-tagRed duration-300;
   }
   p {
     /* Font's default size is 16px */
     @apply text-base font-sans;
+  }
+  html,
+  body,
+  div,
+  span,
+  applet,
+  object,
+  iframe,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  img {
+    @apply select-none;
   }
 }

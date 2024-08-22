@@ -4,7 +4,11 @@ export default {
   theme: {
     extend: {
       margin: {
-        20: '20px'
+        20: '20px',
+        15: '15px'
+      },
+      padding: {
+        15: '15px'
       },
       colors: {
         transparent: 'transparent',
@@ -13,6 +17,7 @@ export default {
         ifoundGary: '#D9D3D5',
         ifoundDarkGray: '#615F5F',
         ifoundBlue: '#1D6AA2',
+        ifoundGary2: '#F4F4F4',
         //====Tag Color=====
         tagRed: '#FFCBC9',
         tagRedText: '#CE0E0A',
@@ -37,9 +42,9 @@ export default {
         desTextColor: '#8D8D8D'
       },
       screens: {
-        sm: '410px',
-        md: '500px',
-        lg: '800px'
+        sm: '375px',
+        md: '620px',
+        lg: '1024px'
       }
     }
   },
